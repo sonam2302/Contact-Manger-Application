@@ -4,7 +4,6 @@ const { v4: uuidv4 } = require("uuid");
 async function AddContact(contact) {
   let contactData = new Contact({
     _id: uuidv4(),
-    // customerid: contact.customerid,
     firstname: contact.firstname,
     lastname: contact.lastname,
     email: contact.email,
@@ -21,7 +20,6 @@ async function GetContacts() {
 }
 
 async function GetContact(id) {
-  console.log(id,'isrepoo')
   return await Contact.findOne({ _id: id });
 }
 
@@ -34,6 +32,7 @@ async function UpdateContact(id, contact) {
       email: contact.email,
       city: contact.city,
       age: contact.age,
+      phone: contact.phone,
     }
   );
 }

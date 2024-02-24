@@ -8,12 +8,13 @@ async function login(req,res) {
             email: req.body.email
         }
     })
-
+    console.log(result, 'result')
     if(result != null) {
         if(bcrypt.compareSync(req.body.password, result.password)){
             let token = jwt.sign(req.body,"this is my secret for authentication api", {
               expiresIn: '1h'  
-            })
+            });
+
             res.status(200).send({status:200, token:token})
         }
         else {
@@ -35,7 +36,6 @@ async function Register(req,res){
             email:req.body.email
         }});
     if(result == null) {
-        // await User.create(req.body);
         await User.create({...req.body,password: bcrypt.hashSync(req.body.password)});
 
         res.status(200).send({status:200,message:"User RegisteRED Succesfully"})

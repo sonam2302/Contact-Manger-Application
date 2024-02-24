@@ -1,20 +1,11 @@
-
-
-
-  
 import { Sequelize, DataTypes } from 'sequelize';
 import 'dotenv/config';
 
-const sequelize = new Sequelize("authdatabase", "postgres", "Dance@232166", {
-  host: "localhost",
-  dialect: "postgres",
-});
-// const sequelize = new Sequelize(process.env.DB_NAME,process.env.DB_USERNAME,process.env.DB_PASSWORD,
-//     {
-//         host: "localhost",
-//         dialect:"postgres",
-//     } );
-
+const sequelize = new Sequelize(process.env.DB_NAME,process.env.DB_USERNAME,process.env.DB_PASSWORD,
+    {
+        host: "localhost",
+        dialect:"postgres",
+    });
 const User = sequelize.define('User', {
   userid: {
     type: DataTypes.INTEGER,

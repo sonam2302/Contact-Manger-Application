@@ -5,7 +5,6 @@ async function GetContacts() {
 }
 
 async function GetContact(id) {
-  console.log(id,'iddddd')
   let res = await repo.GetContact(id);
   if (res == null) {
     throw Error(`Customer with customer id: ${id} does not exists`);
